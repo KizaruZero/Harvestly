@@ -143,16 +143,12 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * 🗑️ Cancel order
-     */
     public function destroy(Request $request, int $id): JsonResponse
     {
         $order = $request->user()
             ->orders()
             ->findOrFail($id);
 
-        // Only allow cancellation if order is still pending
         if ($order->status !== 'pending') {
             return response()->json([
                 'success' => false,
@@ -167,12 +163,6 @@ class OrderController extends Controller
             'message' => 'Order cancelled successfully',
         ]);
     }
-
-    /**
-     * 💳 Generate Midtrans Snap Token
-     * 
-     * TODO: Implement actual Midtrans integration
-     */
     private function generateMidtransToken(Order $order): string
     {
         // Placeholder - integrate with Midtrans SDK

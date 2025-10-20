@@ -6,6 +6,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('HomeView');
 })->name('home');
+Route::get('/cart', function () {
+    return Inertia::render('CartPage');
+})->name('cart');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {

@@ -1,7 +1,7 @@
 import ThemeToggle from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { type SharedData } from '@/types';
-import { usePage } from '@inertiajs/react';
+import { router, usePage } from '@inertiajs/react';
 import { Leaf, Menu, ShoppingCart } from 'lucide-react';
 
 export default function Navbar() {
@@ -39,7 +39,11 @@ export default function Navbar() {
 
                 <div className="flex items-center gap-4">
                     <ThemeToggle />
-                    <Button variant="ghost" size="icon">
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => router.visit('/cart')}
+                    >
                         <ShoppingCart className="h-5 w-5" />
                         <span className="sr-only">Keranjang</span>
                     </Button>
