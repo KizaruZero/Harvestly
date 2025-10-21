@@ -104,10 +104,6 @@ class OrderController extends Controller
 
         return response()->json($orders);
     }
-
-    /**
-     * 🔍 Get single order detail
-     */
     public function show(Request $request, int $id): JsonResponse
     {
         $order = $request->user()
