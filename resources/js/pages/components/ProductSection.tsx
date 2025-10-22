@@ -142,6 +142,15 @@ export default function ProductSection() {
                                                 <ShoppingCart className="mr-2 h-4 w-4" />
                                                 Beli
                                             </Button>
+                                            <Button
+                                                className="mx-4 w-full bg-green-600 hover:bg-green-700"
+                                                onClick={() =>
+                                                    handleBuyClick(products)
+                                                }
+                                            >
+                                                <ShoppingCart className="mr-2 h-4 w-4" />
+                                                Beli
+                                            </Button>
                                         </CardFooter>
                                     </Card>
                                 </div>
