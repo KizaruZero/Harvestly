@@ -202,13 +202,7 @@ export default function ProductSection() {
                             <span className="text-lg font-semibold text-black">
                                 {quantity}
                             </span>
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={handleAddQuantity}
-                            >
-                                <Plus className="h-4 w-4" />
-                            </Button>
+                           
                         </div>
                         <CardFooter>
                             <CheckoutButton
