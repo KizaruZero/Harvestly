@@ -1,3 +1,4 @@
+# Laravel Framework
 /.phpunit.cache
 /bootstrap/ssr
 /node_modules
@@ -10,7 +11,6 @@
 /storage/*.key
 /storage/pail
 /vendor
-.DS_Store
 .env
 .env.backup
 .env.production
@@ -21,8 +21,87 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /auth.json
+
+# IDE & Editors
 /.fleet
 /.idea
 /.nova
 /.vscode
 /.zed
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+/storage/logs/*
+!/storage/logs/.gitignore
+
+# Cache & Compiled Files
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+
+# Database
+/database/*.sqlite
+/database/*.sqlite-journal
+/database/*.db
+
+# Testing
+/coverage
+.phpunit.result.cache
+
+# Build files
+/dist
+/build
+
+# Filament compiled assets (can be regenerated with: php artisan filament:assets)
+/public/css/filament/
+/public/js/filament/
+/public/fonts/filament/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+.cache/
+
+# Laravel Storage
+/storage/app/*
+!/storage/app/.gitignore
+/storage/app/public/*
+!/storage/app/public/.gitignore
+
+# Composer
+composer.phar
+
+# NPM
+.npm
+.yarn/
+
+# Misc
+*.orig
+*.rej
+*.sublime-project
+*.sublime-workspace

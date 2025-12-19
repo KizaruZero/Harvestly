@@ -10,11 +10,11 @@ Route::get('/cart', function () {
     return Inertia::render('CartPage');
 })->name('cart');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
-});
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::get('dashboard', function () {
+//         return Inertia::render('dashboard');
+//     })->name('dashboard');
+// });
 
 // ============================================================
 // 🔒 API Routes with Cookie-Based Authentication (Inertia)

@@ -2,14 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class ProductFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,23 +17,22 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->words(3, true);
+        $name = fake()->words(2, true);
 
         return [
             'name' => $name,
             'slug' => Str::slug($name),
-            'description' => fake()->sentence(15),
-            'weight_kg' => fake()->numberBetween(1, 50),
-            'sku' => 'SKU-' . fake()->unique()->numerify('#######'),
-            'price' => fake()->randomFloat(2, 10000, 1000000),
-            'product_category_id' => Category::factory(),
+            'description' => fake()->sentence(10),
+            'image_category' => fake()->imageUrl(400, 300, 'food'),
             'is_active' => true,
             'is_featured' => fake()->boolean(30),
+            'is_best_seller' => fake()->boolean(20),
+            'is_top_rated' => fake()->boolean(20),
         ];
     }
 
     /**
-     * Indicate that the product is inactive.
+     * Indicate that the category is inactive.
      */
     public function inactive(): static
     {
@@ -44,7 +42,7 @@ class ProductFactory extends Factory
     }
 
     /**
-     * Indicate that the product is featured.
+     * Indicate that the category is featured.
      */
     public function featured(): static
     {
@@ -53,3 +51,4 @@ class ProductFactory extends Factory
         ]);
     }
 }
+

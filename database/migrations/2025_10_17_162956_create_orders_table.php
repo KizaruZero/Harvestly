@@ -15,10 +15,17 @@ return new class extends Migration {
             $table->foreignId('product_id');
             $table->foreignId('user_id');
             $table->string('metode_pembayaran', 100)->nullable();
-            $table->integer('quantity');
+            $table->decimal('subtotal_price', 10, 2);
             $table->decimal('total_price', 10, 2);
-            $table->string('status')->default('pending');
+            $table->enum('status', ['pending', 'paid', 'expired', 'cancelled', 'packed', 'shipped', 'delivered', 'completed'])->default('pending');
             $table->string('snap_token')->nullable();
+            $table->foreignId('address_id')->constrained('addresses');
+            $table->foreignId('discount_id')->constrained('discounts');
+            $table->decimal('discount_amount', 10, 2)->default(0);
+            $table->string('promo_code_snapshot', 100)->nullable();
+            $table->string('shipping_method', 100)->nullable();
+            $table->decimal('shipping_cost', 10, 2)->default(0);
+            $table->string('notes', 100)->nullable();
             $table->timestamps();
         });
     }

@@ -72,7 +72,7 @@ class MidtransWebhookController extends Controller
 
             case 'cancel':
             case 'deny':
-                $order->status = 'failed';
+                $order->status = 'cancelled';
                 $order->save();
                 break;
         }

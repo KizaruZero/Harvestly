@@ -10,17 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->string('slug', 100);
-            $table->string('description', 150);
-            $table->integer('weight_kg')->default(0);
-            $table->string('sku', 100)->nullable()->unique();
-            $table->decimal('price', 10, 2);
-            $table->foreignId('product_category_id')->constrained('categories');
+            $table->string('name', 50);
+            $table->string('slug', 50);
+            $table->string('description', 100)->nullable();
+            $table->string('image_category', 100)->nullable();
             $table->boolean('is_active')->default(true);
             $table->boolean('is_featured')->default(false);
+            $table->boolean('is_best_seller')->default(false);
+            $table->boolean('is_top_rated')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('categories');
     }
 };
