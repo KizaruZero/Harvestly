@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->integer('weight_kg')->default(0);
             $table->string('sku', 100)->nullable()->unique();
             $table->decimal('price', 10, 2);
-            $table->foreignId('product_category_id')->constrained('categories');
             $table->boolean('is_active')->default(true);
             $table->boolean('is_featured')->default(false);
             $table->timestamps();

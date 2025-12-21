@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -19,7 +20,7 @@ class Product extends Model
         'weight_kg',
         'sku',
         'price',
-        'product_category_id',
+        //  'product_category_id',
         'is_active',
         'is_featured',
     ];
@@ -31,10 +32,10 @@ class Product extends Model
         'is_featured' => 'boolean',
     ];
 
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class, 'product_category_id');
-    }
+    // public function category(): BelongsTo
+    // {
+    //     return $this->belongsTo(Category::class, 'product_category_id');
+    // }
 
     public function categories(): BelongsToMany
     {
@@ -61,8 +62,8 @@ class Product extends Model
         return $this->hasMany(DiscountTarget::class);
     }
 
-    public function inventories(): HasMany
+    public function inventories(): HasOne
     {
-        return $this->hasMany(Inventory::class);
+        return $this->hasOne(Inventory::class);
     }
 }

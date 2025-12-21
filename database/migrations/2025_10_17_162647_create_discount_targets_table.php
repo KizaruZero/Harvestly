@@ -12,10 +12,10 @@ return new class extends Migration {
     {
         Schema::create('discount_targets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('discount_id')->constrained('discounts');
-            $table->foreignId('product_id')->constrained('products');
-            $table->foreignId('category_id')->constrained('categories');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('discount_id')->constrained('discounts')->nullable();
+            $table->foreignId('product_id')->constrained('products')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->nullable();
+            $table->foreignId('user_id')->constrained('users')->nullable();
             $table->enum('target_type', ['product', 'category', 'user']);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

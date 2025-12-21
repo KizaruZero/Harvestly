@@ -11,6 +11,7 @@
 /storage/*.key
 /storage/pail
 /vendor
+/lang/vendor
 .env
 .env.backup
 .env.production

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use Illuminate\Database\Eloquent\Relations\HasOne;
 class Discount extends Model
 {
     use HasFactory;
@@ -36,9 +36,9 @@ class Discount extends Model
         return $this->hasMany(Order::class);
     }
 
-    public function discountTargets(): HasMany
+    public function discountTarget(): HasOne
     {
-        return $this->hasMany(DiscountTarget::class);
+        return $this->hasOne(DiscountTarget::class);
     }
 
     public function discountRedemptions(): HasMany

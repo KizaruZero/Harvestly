@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('country', 50);
             $table->boolean('is_default')->default(true);
             $table->string('recipient_name', 50);
-            $table->tinyInteger('phone_number', 15);
+            $table->string('phone_number', 20);
             $table->string('notes', 100)->nullable();
             $table->timestamps();
         });
