@@ -18,7 +18,7 @@ class DiscountTargetResource extends Resource
 {
     protected static ?string $model = DiscountTarget::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ReceiptPercent;
 
     public static function getNavigationGroup(): ?string
     {

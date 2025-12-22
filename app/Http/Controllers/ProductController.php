@@ -14,14 +14,22 @@ class ProductController extends Controller
         $products = Product::all();
         return response()->json(
             ['products' => $products],
-            200
+            200,
         );
     }
+
 
     public function store(Request $request)
     {
         $user = Auth::user();
         if (!$user) {
+            return response()->json(
+                ['message' => 'Unauthorized'],
+                401
+            );
+        }
+
+        if ($user->role != 'super_admin') {
             return response()->json(
                 ['message' => 'Unauthorized'],
                 401

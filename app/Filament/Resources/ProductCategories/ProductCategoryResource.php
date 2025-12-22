@@ -18,8 +18,9 @@ class ProductCategoryResource extends Resource
 {
     protected static ?string $model = ProductCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSquare3Stack3d;
+    // make it not visible
+    protected static bool $shouldRegisterNavigation = false;
     public static function getNavigationGroup(): ?string
     {
         return 'Products Management';

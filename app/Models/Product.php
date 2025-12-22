@@ -47,6 +47,11 @@ class Product extends Model
         return $this->hasMany(ProductImage::class);
     }
 
+    public function primaryImage(): HasOne
+    {
+        return $this->hasOne(ProductImage::class)->where('is_primary', true);
+    }
+
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItems::class);
@@ -66,4 +71,41 @@ class Product extends Model
     {
         return $this->hasOne(Inventory::class);
     }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+        $query->where(function ($q) use ($term) {
+            $q->where('name', 'like', $term)
+                ->orWhere('description', 'like', $term)
+                ->where('is_active', true);
+        });
+    }
+
+    public function scopeCategory($query, $category)
+    {
+        $query->whereHas('categories', function ($q) use ($category) {
+            $q->where('slug', $category);
+        });
+    }
+
+    public function scopePrices($query, $prices)
+    {
+        // Spatie Query Builder biasanya mengirim array jika format filter[price]=10,50
+        // Atau string "10,50" tergantung config. Kita handle keduanya.
+        if (is_string($prices)) {
+            $prices = explode(',', $prices);
+        }
+        $min = $prices[0] ?? null;
+        $max = $prices[1] ?? null;
+
+        if ($min !== null && $min !== '') {
+            $query->where('price', '>=', $min);
+        }
+
+        if ($max !== null && $max !== '') {
+            $query->where('price', '<=', $max);
+        }
+    }
+
 }

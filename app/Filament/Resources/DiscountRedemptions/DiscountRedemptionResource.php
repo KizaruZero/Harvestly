@@ -18,7 +18,7 @@ class DiscountRedemptionResource extends Resource
 {
     protected static ?string $model = DiscountRedemption::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
     public static function getNavigationGroup(): ?string
     {
         return 'Discounts Management';

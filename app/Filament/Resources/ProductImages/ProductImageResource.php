@@ -18,7 +18,7 @@ class ProductImageResource extends Resource
 {
     protected static ?string $model = ProductImage::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
 
     public static function getNavigationGroup(): ?string
     {
